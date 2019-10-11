@@ -2,6 +2,9 @@ class SightingsController < ApplicationController
 
   def index
     sightings = Sighting.all
+    options = {
+      include: [:bird, :location]
+    }
     render json: SightingSerializer.new(sightings)
   end
 
